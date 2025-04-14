@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  auth-service:
+    container_name: auth-service
+    build:
+      context: ./AuthService.API
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:5000
+      ConnectionStrings__DefaultConnection: "Server=mssql,1433;Database=AuthDb;User Id=sa;Password=R1thm?24601;TrustServerCertificate=True;"
+    depends_on:
+      - mssql
+    restart: unless-stopped
+
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "R1thm?24601"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - mssql-data:/var/opt/mssql
+    restart: unless-stopped
+
+volumes:
+  mssql-data:
