@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pBTPLM6GfnoLcH+t8DkEGmlcwqBwDCYJHSJ8GH33w9GcSXevrI6Pox2R8PLUOQhMpWMcRnL+3xY+iQrSoIWwEg==",
+  "dgSpecHash": "8f81UP5qDdNabMQDmYqcUl5x1elf+9SLYTqAPMG3yVQahB9cxHv2YS461gGEmJmAYp4vTR7FWsbX5uY9Nq3MzQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProject\\AuthService.API\\AuthService.API.csproj",
+  "projectFilePath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProjectRepo\\AuthService.API\\AuthService.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Malli\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Malli\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

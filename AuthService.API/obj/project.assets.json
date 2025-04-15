@@ -7132,11 +7132,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProject\\AuthService.API\\AuthService.API.csproj",
+      "projectUniqueName": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProjectRepo\\AuthService.API\\AuthService.API.csproj",
       "projectName": "AuthService.API",
-      "projectPath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProject\\AuthService.API\\AuthService.API.csproj",
+      "projectPath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProjectRepo\\AuthService.API\\AuthService.API.csproj",
       "packagesPath": "C:\\Users\\Malli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProject\\AuthService.API\\obj\\",
+      "outputPath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProjectRepo\\AuthService.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Malli\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7153,11 +7153,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProject\\AuthService.Application\\AuthService.Application.csproj": {
-              "projectPath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProject\\AuthService.Application\\AuthService.Application.csproj"
+            "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProjectRepo\\AuthService.Application\\AuthService.Application.csproj": {
+              "projectPath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProjectRepo\\AuthService.Application\\AuthService.Application.csproj"
             },
-            "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProject\\AuthService.Infrastructure\\AuthService.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProject\\AuthService.Infrastructure\\AuthService.Infrastructure.csproj"
+            "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProjectRepo\\AuthService.Infrastructure\\AuthService.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProjectRepo\\AuthService.Infrastructure\\AuthService.Infrastructure.csproj"
             }
           }
         }

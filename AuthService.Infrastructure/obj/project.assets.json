@@ -2818,11 +2818,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProject\\AuthService.Infrastructure\\AuthService.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProjectRepo\\AuthService.Infrastructure\\AuthService.Infrastructure.csproj",
       "projectName": "AuthService.Infrastructure",
-      "projectPath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProject\\AuthService.Infrastructure\\AuthService.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProjectRepo\\AuthService.Infrastructure\\AuthService.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Malli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProject\\AuthService.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProjectRepo\\AuthService.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Malli\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2839,8 +2839,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProject\\AuthService.Domain\\AuthService.Domain.csproj": {
-              "projectPath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProject\\AuthService.Domain\\AuthService.Domain.csproj"
+            "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProjectRepo\\AuthService.Domain\\AuthService.Domain.csproj": {
+              "projectPath": "C:\\Users\\Malli\\source\\repos\\CleanArchitectureProjectRepo\\AuthService.Domain\\AuthService.Domain.csproj"
             }
           }
         }
