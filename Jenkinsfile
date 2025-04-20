@@ -7,6 +7,10 @@ pipeline {
     }
 
     environment {
+        SOLUTION = 'CleanArchitectureDemo.sln'
+        PROJECT = 'AuthService.API/AuthService.API.csproj'
+        CONFIGURATION = 'Release'
+        PUBLISH_DIR = 'publish' 
         IMAGE_NAME = "mallikarjunaws2025/arjun"
         CONTAINER_NAME = "c8"
         PORT_MAPPING = "9008:8080"
@@ -19,32 +23,53 @@ pipeline {
             }
         }
 
-        stage('Compile Code') {
+        stage('Restore') {
             steps {
-                sh 'mvn compile'
+                sh 'dotnet restore $SOLUTION'
             }
         }
 
-        stage('Package Code') {
+        stage('Build') {
             steps {
-                sh 'mvn clean install'
+                sh 'dotnet build $SOLUTION --configuration $CONFIGURATION --no-restore'
             }
         }
 
-        stage('Docker Build & Tag') {
+        // stage('Test') {
+        //     steps {
+        //         sh 'dotnet test $SOLUTION --configuration $CONFIGURATION --no-build --logger "trx"'
+        //     }
+        // }
+
+        stage('Publish') {
             steps {
-                sh "docker build -t ${IMAGE_NAME}:${BUILD_NUMBER} ."
+                sh 'dotnet publish $PROJECT --configuration $CONFIGURATION --output $PUBLISH_DIR'
             }
         }
 
-        stage('Login to Docker Hub') {
+        stage('Archive') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                    sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
+                archiveArtifacts artifacts: "$PUBLISH_DIR/**", fingerprint: true
+            }
+        }
+
+        post {
+            always {
+                echo 'Build pipeline completed.'
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                script {
+                    sh "docker build -t ${IMAGE_NAME}:${BUILD_NUMBER} ."
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                        sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
+                    }
                 }
             }
         }
-
+        
         stage('Push to Docker Hub') {
             steps {
                 sh "docker push ${IMAGE_NAME}:${BUILD_NUMBER}"
