@@ -1,6 +1,16 @@
 version: '3.8'
 
 services:
+  angular-ui:
+    build:
+      context: ./AuthService.UI
+      dockerfile: Dockerfile
+    container_name: angular-ui
+    ports:
+      - "8080:8080"
+    depends_on:
+      - auth-service
+
   auth-service:
     container_name: auth-service
     build:
