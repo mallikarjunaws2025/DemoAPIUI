@@ -1,0 +1,40 @@
+name: Build and Deploy to MicroK8s
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Login to GitHub Container Registry
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+    - name: Build and Push API Docker Image
+      run: |
+        docker build -t ghcr.io/${{ github.repository_owner }}/authservice-api:latest -f AuthService.API/Dockerfile .
+        docker push ghcr.io/${{ github.repository_owner }}/authservice-api:latest
+
+    - name: Build and Push UI Docker Image
+      run: |
+        docker build -t ghcr.io/${{ github.repository_owner }}/authservice-ui:latest -f AuthService.UI/Dockerfile .
+        docker push ghcr.io/${{ github.repository_owner }}/authservice-ui:latest
+
+    - name: Setup MicroK8s
+      uses: balchua/microk8s-action@v1
+      with:
+        channel: '1.29/stable'
+        addons: 'dns,storage,ingress'
+
+    - name: Apply Kubernetes Manifests
+      run: |
+        microk8s kubectl apply -f k8s-api-deployment.yaml
+        microk8s kubectl apply -f k8s-ui-deployment.yaml
+
+    - name: Check Pods Status
+      run: microk8s kubectl get pods
